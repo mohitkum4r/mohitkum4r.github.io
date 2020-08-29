@@ -1,0 +1,22 @@
+- name: Remove Chinese Apps
+  url: https://github.com/mohitkum4r/Remove-Chinese-Apps
+  code: https://github.com/mohitkum4r/Remove-Chinese-Apps
+  description: Minimalistic app to remove apps that might be a threat to Privacy.
+  used:
+    - thing: Java
+    - thing: Android Studio
+  
+
+- name: We-Connect
+  url: https://github.com/mohitkum4r/We-connect
+  code: https://github.com/mohitkum4r/We-connect
+  description: A p2p video calling website that allows users be it one/two/groups to have video calling and side by side chatting in a same room
+  used:
+    - thing: HTML
+    - thing: CSS
+    - thing: Node.js
+    - thing: JavaScript
+    - thing: Socket.io
+    - thing: Heroku
+
+
