@@ -19,8 +19,8 @@ social:
   #   url: http://codepen.io/bchiang7
   - title: github
     url: https://github.com/mohitkum4r
-  # - title: linkedin
-  #   url: https://www.linkedin.com/in/bchiang7
+  - title: linkedin
+  url: https://www.linkedin.com/in/mohitkum4r
 
 # Build settings
 markdown: kramdown
