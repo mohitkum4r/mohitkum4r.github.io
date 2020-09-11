@@ -1,4 +1,9 @@
-- name: Remove Chinese Apps
+- name: Mohit's Encryption/Decryption(Presently working on it)
+  description: Devised an algorithm of my own to encode and decode strings and help in more secure data transfer.
+  used:
+    - thing: Python
+  
+- name: Remove Spam Apps
   url: https://github.com/mohitkum4r/Remove-Chinese-Apps
   code: https://github.com/mohitkum4r/Remove-Chinese-Apps
   description: Minimalistic app to remove apps that might be a threat to Privacy.
