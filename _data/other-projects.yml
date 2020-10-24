@@ -1,4 +1,4 @@
-- name: Mohit's Encryption/Decryption(Presently working on it)
+- name: Mohit's Encryption/Decryption(Present)
   description: Devised an algorithm of my own to encode and decode strings and help in more secure data transfer.
   used:
     - thing: Python
