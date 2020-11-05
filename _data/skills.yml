@@ -2,7 +2,7 @@ languages:
   - item: Java
   # - item: TypeScript
   - item: HTML
-  - item: CSS/Sass
+  - item: CSS
   - item: Python
   # - item: SQL
   # - item: R
