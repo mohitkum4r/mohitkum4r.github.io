@@ -1,5 +1,5 @@
 languages:
-  - item: JavaScript (ES6)
+  - item: Java
   # - item: TypeScript
   - item: HTML
   - item: CSS/Sass
@@ -7,13 +7,13 @@ languages:
   # - item: SQL
   # - item: R
 
-frameworks:
+#frameworks:
   # - item: Ember & Glimmer
   # - item: React
   # - item: Jekyll
-  - item: Node
-  - item: Flask
-  - item: Wordpress
+ # - item: Node
+ # - item: Flask
+  #- item: 
   # - item: Timber
 
 tools:
@@ -21,7 +21,7 @@ tools:
   - item: Git & Github
   # - item: Gulp & Grunt
   - item: Chrome DevTools
-  - item: Postman
+  #- item: Postman
   # - item: MongoDB
 
 design:
