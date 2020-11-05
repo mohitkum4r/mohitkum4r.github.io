@@ -7,12 +7,12 @@ languages:
   # - item: SQL
   # - item: R
 
-#frameworks:
+frameworks:
   # - item: Ember & Glimmer
   # - item: React
   # - item: Jekyll
  # - item: Node
- # - item: Flask
+  - item: Flask
   #- item: 
   # - item: Timber
 
