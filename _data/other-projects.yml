@@ -22,15 +22,12 @@
   
 
 - name: We-Connect
-  url: https://github.com/mohitkum4r/We-connect
+  url: https://mohits-webchat-app.herokuapp.com/
   code: https://github.com/mohitkum4r/We-connect
   description: A p2p video calling website that allows users be it one/two/groups to have video calling and side by side chatting in a same room
   used:
     - thing: HTML
     - thing: CSS
-    - thing: Node.js
     - thing: JavaScript
-    - thing: Socket.io
-    - thing: Heroku
 
 
