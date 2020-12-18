@@ -2,6 +2,15 @@
   description: Devised an algorithm of my own to encode and decode strings and help in more secure data transfer.
   used:
     - thing: Python
+
+- name: File compression using Greedy-Huffman Algorithm
+  url: https://github.com/mohitkum4r/Huffman-File-Compression
+  code: https://github.com/mohitkum4r/Huffman-File-Compression
+  description: Implemented file compression using greedy-Huffman Algorithm.
+  used:
+    - thing: Java
+    
+  
   
 - name: Remove Spam Apps
   url: https://github.com/mohitkum4r/Remove-Chinese-Apps
