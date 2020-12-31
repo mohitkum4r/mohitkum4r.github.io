@@ -3,7 +3,7 @@
   used:
     - thing: Java
 
-- name: File compression using Greedy-Huffman Algorithm
+- name: File compression (Greedy-Huffman Algo.)
   url: https://github.com/mohitkum4r/Huffman-File-Compression
   code: https://github.com/mohitkum4r/Huffman-File-Compression
   description: Implemented file compression using greedy-Huffman Algorithm.
