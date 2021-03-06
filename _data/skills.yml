@@ -4,23 +4,24 @@ languages:
   - item: HTML
   - item: CSS
   - item: Python
-  # - item: SQL
+  - item: SQL
   # - item: R
 
 frameworks:
   # - item: Ember & Glimmer
   # - item: React
   # - item: Jekyll
- # - item: Node
-  - item: Flask
-  #- item: 
+  - item: Node
+  - item: Bootstrap
+  - item: Express
   # - item: Timber
 
 tools:
   # - item: Bash
   - item: Git & Github
-  # - item: Gulp & Grunt
+  - item: Visual Studio Code
   - item: Chrome DevTools
+  
   #- item: Postman
   # - item: MongoDB
 
