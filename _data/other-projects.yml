@@ -9,17 +9,7 @@
   description: Implemented file compression using greedy-Huffman Algorithm.
   used:
     - thing: Java
-    
-  
-  
-- name: Remove Spam Apps
-  url: https://github.com/mohitkum4r/Remove-Chinese-Apps
-  code: https://github.com/mohitkum4r/Remove-Chinese-Apps
-  description: Minimalistic app to remove apps that might be a threat to Privacy.
-  used:
-    - thing: Java
-    - thing: Android Studio
-  
+
 
 - name: We-Connect
   url: https://mohits-webchat-app.herokuapp.com/
@@ -29,5 +19,17 @@
     - thing: HTML
     - thing: CSS
     - thing: JavaScript
+ 
+ 
+- name: Remove Spam Apps
+  url: https://github.com/mohitkum4r/Remove-Chinese-Apps
+  code: https://github.com/mohitkum4r/Remove-Chinese-Apps
+  description: Minimalistic app to remove apps that might be a threat to Privacy.
+  used:
+    - thing: Java
+    - thing: Android Studio
+  
+
+
 
 
