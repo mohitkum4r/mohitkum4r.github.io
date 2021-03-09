@@ -1,5 +1,5 @@
 - name: Mohit's Encryption/Decryption(Present)
-  description: Working an algorithm of my own to encode and decode strings and help in more secure data transfer.(Extension to we-connect)
+  description: Working on an algorithm of my own to encode and decode strings and help in more secure data transfer.(Extension to we-connect)
   used:
     - thing: Java
 
