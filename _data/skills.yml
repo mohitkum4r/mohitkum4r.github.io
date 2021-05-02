@@ -9,20 +9,20 @@ languages:
 
 frameworks:
   # - item: Ember & Glimmer
-  # - item: React
-  # - item: Jekyll
+  - item: Spring Boot
+  - item: Hibernate
   - item: Node
   - item: Bootstrap
   - item: Express
   # - item: Timber
 
 tools:
-  # - item: Bash
+   - item: Spring Tool Suite
   - item: Git & Github
   - item: Visual Studio Code
   - item: Chrome DevTools
   
-  #- item: Postman
+  - item: Postman
   # - item: MongoDB
 
 design:
