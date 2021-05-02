@@ -9,19 +9,18 @@ languages:
 
 frameworks:
   # - item: Ember & Glimmer
+  # - item: React
   - item: Spring Boot
-  - item: Hibernate
   - item: Node
   - item: Bootstrap
   - item: Express
-  # - item: Timber
+  - item: Hibernate
 
 tools:
-   - item: Spring Tool Suite
+  - item: Spring Tool Suite
   - item: Git & Github
   - item: Visual Studio Code
   - item: Chrome DevTools
-  
   - item: Postman
   # - item: MongoDB
 
