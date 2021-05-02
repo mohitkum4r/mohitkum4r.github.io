@@ -1,8 +1,3 @@
-- name: Mohit's Encryption/Decryption(Present)
-  description: Working on an algorithm of my own to encode and decode strings and help in more secure data transfer.(Extension to we-connect)
-  used:
-    - thing: Java
-
 - name: File compression (Greedy-Huffman Algo.)
   url: https://github.com/mohitkum4r/Huffman-File-Compression
   code: https://github.com/mohitkum4r/Huffman-File-Compression
