@@ -1,8 +1,8 @@
 # Site settings
 name: Mohit Kumar
-title: Mohit Kumar| Front End Software Engineer
-description: Design-minded front-end software engineer focused on building beautiful interfaces and experiences
-url: https://mohitkumar4r.github.io/
+title: Mohit Kumar| Backend Software Developer
+description: Design-minded backend software developer.
+url: https://mohitkum4r.github.io/
 baseurl: ''
 email: mohitkumar4706@gmail.com
 cover: https://mohitkum4r.github.io/img/og.png
@@ -17,12 +17,8 @@ social:
     url: https://twitter.com/mohitkum4r
   - title: instagram
     url: https://instagram.com/mohitkum4r
-  # - title: codepen
-  #   url: http://codepen.io/bchiang7
   - title: github
     url: https://github.com/mohitkum4r
-#  - title: linkedin
- # url: https://www.linkedin.com/in/mohitkum4r
 
 # Build settings
 markdown: kramdown

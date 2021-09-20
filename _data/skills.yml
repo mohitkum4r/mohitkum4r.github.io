@@ -1,15 +1,11 @@
 languages:
   - item: Java
-  # - item: TypeScript
   - item: HTML
   - item: CSS
-  - item: Python
   - item: SQL
-  # - item: R
+  - item: React
 
 frameworks:
-  # - item: Ember & Glimmer
-  # - item: React
   - item: Spring Boot
   - item: Node
   - item: Bootstrap
@@ -22,12 +18,4 @@ tools:
   - item: Visual Studio Code
   - item: Chrome DevTools
   - item: Postman
-  # - item: MongoDB
 
-design:
-  - item: Sketch
-  - item: InDesign
-  - item: InVision
-  - item: Prototyping
-  - item: Wireframing
-  - item: User Testing
