@@ -1,21 +1,21 @@
 languages:
-  - item: Java
+  - item: Java (8, 11, 17, 21)
   - item: HTML
   - item: CSS
   - item: SQL
-  - item: React
+  - item: JavaScript
 
 frameworks:
   - item: Spring Boot
-  - item: Node
-  - item: Bootstrap
-  - item: Express
+  - item: Spring
+  - item: JPA
   - item: Hibernate
+  - item: React
 
-tools:
-  - item: Spring Tool Suite
-  - item: Git & Github
-  - item: Visual Studio Code
-  - item: Chrome DevTools
+platforms:
+  - item: Apache Kafka
+  - item: AWS S3
+  - item: Schema Registry
+  - item: Docker
   - item: Postman
 
