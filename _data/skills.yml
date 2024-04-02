@@ -1,8 +1,8 @@
 languages:
   - item: Java (8, 11, 17, 21)
-  - item: HTML
-  - item: CSS
   - item: SQL
+  - item: NoSQL
+  - item: Python
   - item: JavaScript
 
 frameworks:
@@ -14,7 +14,7 @@ frameworks:
 
 platforms:
   - item: Apache Kafka
-  - item: AWS S3
+  - item: AWS Medium Level
   - item: Schema Registry
   - item: Docker
   - item: Postman
