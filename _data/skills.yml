@@ -26,7 +26,7 @@ databases_and_caching:
   - item: Elasticsearch
 
 cloud_and_devops:
-  - item: AWS (EC2, S3, IAM, MSK) - Medium Proficiency
+  - item: AWS (EC2, S3, IAM, MSK)
   - item: Docker
   - item: Kubernetes
   - item: Jenkins

@@ -2,6 +2,35 @@
     <div class="section__title">Skills</div>
     <div class="section__content">
         <div class="skillz">
+
+            <div class="skillz__category">
+                <div class="skillz__category__label">Languages</div>
+                <ul>
+                    {% for language in site.data.skills.languages %}
+                    <li class="skillz__category__item">{{language.item}}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class="skillz__category">
+                <div class="skillz__category__label">Frameworks & Libraries</div>
+                <ul>
+                    {% for lib in site.data.skills.frameworks_and_libraries %}
+                    <li class="skillz__category__item">{{lib.item}}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class="skillz__category">
+                <div class="skillz__category__label">Messaging & Streaming</div>
+                <ul>
+                    {% for msg in site.data.skills.messaging_and_streaming %}
+                    <li class="skillz__category__item">{{msg.item}}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <br>
+
             <div class="skillz__category">
                 <div class="skillz__category__label">Databases & Caching</div>
                 <ul>
@@ -28,6 +57,7 @@
                     {% endfor %}
                 </ul>
             </div>
+
         </div>
     </div>
 </section>
