@@ -5,37 +5,38 @@ languages:
   - item: SQL
   - item: NoSQL
 
-frameworks and libraries:
+frameworks_and_libraries:
   - item: Spring Boot
   - item: Spring (Core, Security)
   - item: Hibernate
   - item: JPA
   - item: Vert.x
+  - item: React
 
-messaging and streaming:
+messaging_and_streaming:
   - item: Apache Kafka
   - item: RabbitMQ
   - item: Schema Registry
 
-databases and caching:
+databases_and_caching:
   - item: PostgreSQL
   - item: MySQL
   - item: MongoDB
   - item: Redis
   - item: Elasticsearch
 
-cloud and devops:
+cloud_and_devops:
   - item: AWS (EC2, S3, IAM, MSK) - Medium Proficiency
   - item: Docker
   - item: Kubernetes
   - item: Jenkins
   - item: Nginx
 
-tools and monitoring:
-  - item: Datadog
-  - item: Grafana
-  - item: SonarQube
-  - item: OpenTelemetry
+tools_and_monitoring:
   - item: Git
-  - item: Jira
+  - item: SonarQube
+  - item: Grafana
+  - item: OpenTelemetry
   - item: Postman
+  - item: Jira
+  - item: Godspeed Framework

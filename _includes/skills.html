@@ -1,7 +1,6 @@
 <section class="section skills">
   <div class="section__title">Skills</div>
   <div class="section__content">
-    <!-- <p>I’ve picked up quite a few skills during the course of my three co-ops, and aim to improve these skills everyday. Here are a few of the technologies that I have experience with:</p> -->
     <div class="skillz">
       <div class="skillz__category">
         <div class="skillz__category__label">Languages</div>
@@ -11,30 +10,51 @@
           {% endfor %}
         </ul>
       </div>
+
       <div class="skillz__category">
-        <div class="skillz__category__label">Frameworks</div>
+        <div class="skillz__category__label">Frameworks & Libraries</div>
         <ul>
-          {% for framework in site.data.skills.frameworks %}
-          <li class="skillz__category__item">{{framework.item}}</li>
+          {% for lib in site.data.skills.frameworks_and_libraries %}
+          <li class="skillz__category__item">{{lib.item}}</li>
           {% endfor %}
         </ul>
       </div>
+
       <div class="skillz__category">
-        <div class="skillz__category__label">Platforms</div>
+        <div class="skillz__category__label">Messaging & Streaming</div>
         <ul>
-          {% for platform in site.data.skills.platforms %}
-          <li class="skillz__category__item">{{platform.item}}</li>
+          {% for msg in site.data.skills.messaging_and_streaming %}
+          <li class="skillz__category__item">{{msg.item}}</li>
           {% endfor %}
         </ul>
       </div>
-      <!-- <div class="skillz__category">
-        <div class="skillz__category__label">Design</div>
+
+      <div class="skillz__category">
+        <div class="skillz__category__label">Databases & Caching</div>
         <ul>
-          {% for thing in site.data.skills.design %}
-          <li class="skillz__category__item">{{thing.item}}</li>
+          {% for db in site.data.skills.databases_and_caching %}
+          <li class="skillz__category__item">{{db.item}}</li>
           {% endfor %}
         </ul>
-      </div> -->
+      </div>
+
+      <div class="skillz__category">
+        <div class="skillz__category__label">Cloud & DevOps</div>
+        <ul>
+          {% for devop in site.data.skills.cloud_and_devops %}
+          <li class="skillz__category__item">{{devop.item}}</li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <div class="skillz__category">
+        <div class="skillz__category__label">Tools & Monitoring</div>
+        <ul>
+          {% for tool in site.data.skills.tools_and_monitoring %}
+          <li class="skillz__category__item">{{tool.item}}</li>
+          {% endfor %}
+        </ul>
+      </div>
     </div>
   </div>
 </section>
