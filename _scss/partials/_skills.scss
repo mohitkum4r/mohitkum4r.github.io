@@ -1,11 +1,12 @@
 .skills {
   .skillz {
     display: flex;
-    justify-content: space-between;
-    @include weird-medium {
-      flex-wrap: wrap;
-    }
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: flex-start;
     &__category {
+      width: 30%;
+      margin-bottom: 25px;
       @include weird-medium {
         width: 47%;
         margin-right: 5px;
@@ -15,6 +16,7 @@
         font-weight: 700;
         color: $black;
         text-transform: uppercase;
+        margin-bottom: 0.5rem;
       }
       &__item {
         margin: 3px 0;
