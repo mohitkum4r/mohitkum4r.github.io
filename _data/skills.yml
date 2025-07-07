@@ -1,21 +1,41 @@
 languages:
   - item: Java (8, 11, 17, 21)
-  - item: SQL
-  - item: NoSQL
   - item: Python
   - item: JavaScript
+  - item: SQL
+  - item: NoSQL
 
-frameworks:
+frameworks and libraries:
   - item: Spring Boot
-  - item: Spring
-  - item: JPA
+  - item: Spring (Core, Security)
   - item: Hibernate
-  - item: React
+  - item: JPA
+  - item: Vert.x
 
-platforms:
+messaging and streaming:
   - item: Apache Kafka
-  - item: AWS Medium Level
+  - item: RabbitMQ
   - item: Schema Registry
-  - item: Docker
-  - item: Postman
 
+databases and caching:
+  - item: PostgreSQL
+  - item: MySQL
+  - item: MongoDB
+  - item: Redis
+  - item: Elasticsearch
+
+cloud and devops:
+  - item: AWS (EC2, S3, IAM, MSK) - Medium Proficiency
+  - item: Docker
+  - item: Kubernetes
+  - item: Jenkins
+  - item: Nginx
+
+tools and monitoring:
+  - item: Datadog
+  - item: Grafana
+  - item: SonarQube
+  - item: OpenTelemetry
+  - item: Git
+  - item: Jira
+  - item: Postman
