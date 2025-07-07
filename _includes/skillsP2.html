@@ -1,0 +1,32 @@
+<section class="section skills">
+    <div class="section__content">
+        <div class="skillz">
+            <div class="skillz__category">
+                <div class="skillz__category__label">Databases & Caching</div>
+                <ul>
+                    {% for db in site.data.skills.databases_and_caching %}
+                    <li class="skillz__category__item">{{db.item}}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class="skillz__category">
+                <div class="skillz__category__label">Cloud & DevOps</div>
+                <ul>
+                    {% for devop in site.data.skills.cloud_and_devops %}
+                    <li class="skillz__category__item">{{devop.item}}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class="skillz__category">
+                <div class="skillz__category__label">Tools & Monitoring</div>
+                <ul>
+                    {% for tool in site.data.skills.tools_and_monitoring %}
+                    <li class="skillz__category__item">{{tool.item}}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
