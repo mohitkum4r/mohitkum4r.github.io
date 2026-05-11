@@ -1,0 +1,38 @@
+---
+layout: default
+title: Writing | Mohit Kumar
+---
+
+<div id="site">
+  {% include switch.html %}
+  
+  <div class="post-content blog-list-page">
+    <div class="post-header">
+      <h1 class="post-title">Writing</h1>
+      <p style="font-size: 1.2rem; font-weight: 300; margin-top: 20px; color: inherit;">I write about backend engineering, AI, and building scalable systems. Here’s a collection of my thoughts and deep dives.</p>
+    </div>
+    
+    <div class="post-body">
+      <div class="posts">
+        {% for post in site.posts %}
+        <div class="post-item card">
+          <div class="post-item__meta">{{ post.date | date: "%b %-d, %Y" }}</div>
+          <div class="post-item__title">
+            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+          </div>
+          <div class="post-item__description">
+            {{ post.description }}
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+
+      <div style="margin-top: 80px;">
+        <a href="{{ site.baseurl }}/" class="arrow-link">Back to Home</a>
+      </div>
+    </div>
+  </div>
+
+  {% include footer.html %}
+  {% include top-button.html %}
+</div>

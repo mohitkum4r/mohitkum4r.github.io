@@ -1,30 +1,28 @@
-- company: Publicis Sapient
+- company: "Publicis Sapient (Client: Galaxy Digital, Hong Kong)"
   url: https://www.publicissapient.com/
-  time: Aug 2024 - Present
-  position: Software Development Engineer 1
+  time: August 2024 - Present
+  position: Software Development Engineer 2 (Manager/ Specialist)
+  details:
+    - Built generalized crypto asset transfer tool for secure movement of digital assets between Fireblocks vaults, institutional exchanges, and counterparties, automating multi-million-dollar daily transactions that were previously manual.
+    - Developed threshold-based rebalancing engine that redistributes assets across accounts for active trading, lending, and operations, automatically derisking idle assets to cold vault storage.
+    - Building exchange connectivity layer that abstracts deposit/withdrawal address management from operations users via a unified dashboard, reducing operational burden and security risk.
+    - Led zero-downtime migration of 50+ microservices from EC2 to Kubernetes (EKS) with a three-phase dependency-aware rollout across production trading environments.
+    - Architected Kafka-based replay system for MSK to Confluent Cloud migration (25% cost reduction) and designed consumer-first bridge replacing RabbitMQ, eliminating 100% of pricing update failures.
 
 - company: Pine Labs
   url: https://www.pinelabs.com/
-  time: June 2022 - Aug 2024
+  time: June 2022 - August 2024
   position: Software Engineer
+  details:
+    - Architected backend for Apple Pay Later with HDFC Bank, building the eligibility engine, approval workflows, and real-time disbursement pipelines serving millions of users.
+    - Launched Flexi Credit lending platform processing INR 150M+ monthly across 85,000+ merchants with instant approvals up to INR 500K.
+    - Optimized merchant onboarding via Kafka, Redis, and multithreading, cutting processing time by 99.1% (hours to seconds).
+    - Built AML and fraud detection systems saving INR 360M+ in risk exposure; integrated HDFC, ICICI, Kotak APIs for real-time BNPL credit checks.
 
-- company: Rezo.ai
-  url: https://www.rezo.ai/
-  time: March 2022 - May 2022
-  position: Software Engineer
-  
 - company: Adda247
   url: https://www.adda247.com/
   time: March 2021 - March 2022
   position: Software Developer
-
-- company: Exposys Data Labs
-  url: https://www.exposysdata.com/
-  time: July - August 2020
-  position: Web Developer
-
-- company: JPMorgan Chase & Co.
-  url: https://careers.jpmorgan.com/us/en/home
-  time: June - June 2020
-  position: Software Engineer
-
+  details:
+    - Implemented CloudFront + Redis caching that cut P90 API latency 81% (800ms to 150ms) and reduced database load by 70% for a platform serving 10M+ monthly active users.
+    - Led Study IQ platform integration, designing unified data models and REST APIs for cross-platform revenue tracking.

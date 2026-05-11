@@ -1,12 +1,24 @@
 $(function() {
   const d = new Date();
   const hours = d.getHours();
-  const night = hours >= 19 || hours <= 7; // between 7pm and 7am
+  const defaultNight = hours >= 19 || hours <= 7; // between 7pm and 7am
+  
+  const savedTheme = localStorage.getItem('theme');
+  let isNight = false;
+  
+  if (savedTheme === 'night') {
+    isNight = true;
+  } else if (savedTheme === 'light') {
+    isNight = false;
+  } else {
+    isNight = defaultNight;
+  }
+
   const body = document.querySelector('body');
   const toggle = document.getElementById('toggle');
   const input = document.getElementById('switch');
 
-  if (night) {
+  if (isNight) {
     input.checked = true;
     body.classList.add('night');
   }
@@ -15,8 +27,10 @@ $(function() {
     const isChecked = input.checked;
     if (isChecked) {
       body.classList.remove('night');
+      localStorage.setItem('theme', 'light');
     } else {
       body.classList.add('night');
+      localStorage.setItem('theme', 'night');
     }
   });
 

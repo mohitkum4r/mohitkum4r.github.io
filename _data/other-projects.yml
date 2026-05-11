@@ -1,3 +1,15 @@
+- name: AutoTrade Bot
+  url: https://github.com/mohitkum4r/AutoTrade-Bot
+  code: https://github.com/mohitkum4r/AutoTrade-Bot
+  description: Automated trading bot with LIVE/PAPER modes using ML-driven strategy selection and LLM-powered sentiment analysis via RAG pipeline over financial news, improving prediction accuracy by 20%. Risk management with dynamic stop-loss, position sizing, and exposure limits; modular backtesting architecture reduced API costs 40%.
+  used:
+    - thing: Python
+    - thing: LLM
+    - thing: RAG
+    - thing: Scikit-learn
+    - thing: LangChain
+    - thing: SQLAlchemy
+
 - name: World Covid-19 Tracker
   url: https://covid-tracker-mohit.netlify.app/
   code: https://github.com/mohitkum4r/world-covid-tracker

@@ -1,42 +1,53 @@
 languages:
-  - item: Java (8, 11, 17, 21)
+  - item: Java
   - item: Python
-  - item: JavaScript
   - item: SQL
-  - item: NoSQL
+  - item: JavaScript
+  - item: TypeScript
 
-frameworks_and_libraries:
+backend:
   - item: Spring Boot
-  - item: Spring (Core, Security)
+  - item: Spring Security
   - item: Hibernate
-  - item: JPA
-  - item: Vert.x
-  - item: React
+  - item: JUnit
+  - item: Mockito
+  - item: Maven
+  - item: Gradle
 
-messaging_and_streaming:
-  - item: Apache Kafka
-  - item: RabbitMQ
-  - item: Schema Registry
-
-databases_and_caching:
-  - item: PostgreSQL
+data_and_streaming:
   - item: MySQL
+  - item: PostgreSQL
   - item: MongoDB
   - item: Redis
   - item: Elasticsearch
+  - item: DynamoDB
+  - item: Apache Kafka
+  - item: RabbitMQ
 
 cloud_and_devops:
-  - item: AWS (EC2, S3, IAM, MSK)
-  - item: Docker
+  - item: AWS (EC2, S3, EKS, IAM, Lambda, CloudFront)
   - item: Kubernetes
+  - item: Docker
   - item: Jenkins
-  - item: Nginx
+  - item: Terraform
+  - item: CI/CD
 
-tools_and_monitoring:
-  - item: Git
-  - item: SonarQube
+ai_ml:
+  - item: LLM Integration
+  - item: RAG
+  - item: Prompt Engineering
+  - item: NLP
+  - item: Scikit-learn
+  - item: LangChain
+  - item: Vector Databases
+
+observability_and_practices:
   - item: Grafana
+  - item: Datadog
   - item: OpenTelemetry
-  - item: Postman
-  - item: Jira
-  - item: Godspeed Framework
+  - item: SonarQube
+  - item: Microservices
+  - item: REST APIs
+  - item: System Design
+  - item: TDD
+  - item: Agile

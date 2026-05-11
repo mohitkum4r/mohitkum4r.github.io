@@ -1,4 +1,4 @@
-.experience {
+.experience, .education {
   .jobs {
     margin-bottom: 100px;
   }
@@ -19,6 +19,20 @@
       font-family: 'Inconsolata', monospace;
       @include mobile {
         font-size: 0.8rem;
+      }
+    }
+    &__position {
+      font-style: italic;
+      margin-bottom: 10px;
+    }
+    &__details {
+      margin-top: 10px;
+      padding-left: 20px;
+      list-style-type: disc;
+      li {
+        font-size: 0.95rem;
+        margin-bottom: 5px;
+        line-height: 1.4;
       }
     }
   }

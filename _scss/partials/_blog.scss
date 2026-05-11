@@ -1,0 +1,225 @@
+.post-content {
+  padding: 180px 170px 100px;
+  @include thirteen {
+    padding: 180px 100px 100px;
+  }
+  @include desktop {
+    padding: 120px 50px 80px;
+  }
+  @include mobile {
+    padding: 100px 35px 60px;
+  }
+
+  .post-header {
+    max-width: 700px;
+    margin: 0 auto 100px;
+...
+      font-size: 3.5rem;
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      color: $black;
+      @include tablet {
+        font-size: 2.5rem;
+      }
+    }
+    .post-meta {
+      font-family: 'Inconsolata', monospace;
+      font-size: 0.9rem;
+      color: $grey;
+      letter-spacing: 1px;
+    }
+  }
+
+  .post-body {
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: $dark-grey;
+    font-weight: 300;
+
+    h2, h3, h4 {
+      margin-top: 60px;
+      margin-bottom: 25px;
+      color: $black;
+      font-weight: 700;
+    }
+
+    h2 { font-size: 2rem; }
+    h3 { font-size: 1.5rem; }
+
+    p {
+      margin-bottom: 30px;
+    }
+
+    ul, ol {
+      margin-bottom: 30px;
+      padding-left: 25px;
+      li {
+        margin-bottom: 12px;
+      }
+    }
+
+    ul { list-style-type: disc; }
+
+    code {
+      background: rgba($black, 0.05);
+      padding: 3px 6px;
+      border-radius: 4px;
+      font-family: 'Inconsolata', monospace;
+      font-size: 0.9em;
+    }
+
+    pre {
+      background: $night;
+      color: $slate;
+      padding: 30px;
+      border-radius: 12px;
+      overflow-x: auto;
+      margin: 40px 0;
+      font-size: 0.95rem;
+      border: 1px solid rgba($white, 0.05);
+      code {
+        background: transparent;
+        padding: 0;
+        color: inherit;
+      }
+    }
+
+    blockquote {
+      border-left: 3px solid $blue;
+      padding-left: 30px;
+      font-style: italic;
+      margin: 40px 0;
+      color: $grey;
+      font-size: 1.2rem;
+    }
+
+    hr {
+      border: 0;
+      border-top: 1px solid rgba($black, 0.1);
+      margin: 60px 0;
+    }
+  }
+
+  .post-footer {
+    max-width: 700px;
+    margin: 60px auto 0;
+    padding-top: 40px;
+    border-top: 1px solid rgba($black, 0.1);
+    .arrow-link {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+  }
+}
+
+// Night mode adjustments
+body.night {
+  .post-content {
+    .post-header {
+      .post-title { color: $white; }
+      .post-meta { color: $slate; }
+    }
+    .post-body {
+      color: $slate;
+      h2, h3, h4 { color: $white; }
+      code { background: rgba($white, 0.1); }
+      pre { background: darken($night, 2%); }
+      blockquote { color: $slate; }
+      hr { border-top-color: rgba($white, 0.1); }
+    }
+    .post-footer {
+      border-top-color: rgba($white, 0.1);
+    }
+  }
+}
+
+.writing {
+  .post-item {
+    margin-bottom: 80px;
+    &:last-of-type { margin-bottom: 0; }
+    
+    &__meta {
+      font-family: 'Inconsolata', monospace;
+      font-size: 0.85rem;
+      color: $grey;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+
+    &__title {
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 15px;
+      a {
+        color: $black;
+        transition: color 0.2s ease;
+        &:hover { color: $blue; }
+      }
+    }
+    
+    &__description {
+      font-size: 1.1rem;
+      line-height: 1.5;
+      color: $grey;
+      font-weight: 300;
+    }
+  }
+}
+
+body.night {
+  .writing {
+    .post-item {
+      &__title a {
+        color: $white;
+        &:hover { color: $blue; }
+      }
+      &__meta { color: $slate; }
+      &__description { color: $slate; }
+    }
+  }
+}
+
+.blog-list-page {
+  .post-item.card {
+    background: #f9f9f9;
+    padding: 40px;
+    border-radius: 12px;
+    margin-bottom: 40px;
+    border: 1px solid rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+    }
+
+    .post-item__title {
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+    }
+  }
+}
+
+body.night {
+  .blog-list-page {
+    .post-item.card {
+      background: #1a1a1a;
+      border-color: rgba(255,255,255,0.05);
+      &:hover {
+        box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+      }
+      .post-item__title a {
+        color: $white;
+        &:hover { color: $blue; }
+      }
+      .post-item__description {
+        color: $slate;
+      }
+    }
+  }
+}

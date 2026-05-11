@@ -13,19 +13,46 @@
             </div>
 
             <div class="skillz__category">
-                <div class="skillz__category__label">Frameworks & Libraries</div>
+                <div class="skillz__category__label">Backend</div>
                 <ul>
-                    {% for lib in site.data.skills.frameworks_and_libraries %}
-                    <li class="skillz__category__item">{{lib.item}}</li>
+                    {% for item in site.data.skills.backend %}
+                    <li class="skillz__category__item">{{item.item}}</li>
                     {% endfor %}
                 </ul>
             </div>
 
             <div class="skillz__category">
-                <div class="skillz__category__label">Messaging & Streaming</div>
+                <div class="skillz__category__label">Data & Streaming</div>
                 <ul>
-                    {% for msg in site.data.skills.messaging_and_streaming %}
-                    <li class="skillz__category__item">{{msg.item}}</li>
+                    {% for item in site.data.skills.data_and_streaming %}
+                    <li class="skillz__category__item">{{item.item}}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class="skillz__category">
+                <div class="skillz__category__label">Cloud & DevOps</div>
+                <ul>
+                    {% for item in site.data.skills.cloud_and_devops %}
+                    <li class="skillz__category__item">{{item.item}}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class="skillz__category">
+                <div class="skillz__category__label">AI/ML</div>
+                <ul>
+                    {% for item in site.data.skills.ai_ml %}
+                    <li class="skillz__category__item">{{item.item}}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class="skillz__category">
+                <div class="skillz__category__label">Observability & Practices</div>
+                <ul>
+                    {% for item in site.data.skills.observability_and_practices %}
+                    <li class="skillz__category__item">{{item.item}}</li>
                     {% endfor %}
                 </ul>
             </div>

@@ -1,0 +1,5 @@
+source 'https://rubygems.org'
+gem 'jekyll', '3.8.5'
+gem 'jekyll-minifier'
+gem 'jekyll-sitemap'
+gem 'ffi', '1.15.5'
