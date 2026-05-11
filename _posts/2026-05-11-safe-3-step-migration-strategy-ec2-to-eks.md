@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "A Safe 3-Step Migration Strategy from EC2 to Amazon EKS"
-date: 2026-05-12
+date: 2026-05-11
 description: "A practical guide to migrating workloads from EC2 to Amazon EKS using a phased approach to minimize risk and downtime."
 ---
 
