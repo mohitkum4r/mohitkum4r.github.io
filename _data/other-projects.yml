@@ -1,3 +1,25 @@
+- name: Apple Pay Later | Flexi Credit | Pay Later
+  url: https://credit.pinelabs.com/
+  description: Designed and developed the architecture for Apple Pay Later, integrating multiple lenders like HDFC, ICICI, and Kotak to enable personalized financial options for lending platforms. Reduced merchant whitelisting time by 99.11% using Kafka, caching, multithreading, and algorithms.
+  used:
+    - thing: Kafka
+    - thing: Redis
+    - thing: Java
+
+- name: Adda247 | Career Power
+  url: https://www.adda247.com/
+  description: Developed a common-consumption module to prevent site crashes under high load and implemented Redis for faster API response times, improving live class performance. Pioneered multilingual packages for better accessibility.
+  used:
+    - thing: Redis
+    - thing: APIs
+
+- name: Rezo AI
+  url: https://www.rezo.ai/
+  description: Engineered low-latency conversational bots for automated client contact centers, enabling seamless integration of service platforms like Call, WhatsApp, and Web chat.
+  used:
+    - thing: Conversational AI
+    - thing: Bots
+
 - name: AutoTrade Bot
   url: https://github.com/mohitkum4r/AutoTrade-Bot
   code: https://github.com/mohitkum4r/AutoTrade-Bot
