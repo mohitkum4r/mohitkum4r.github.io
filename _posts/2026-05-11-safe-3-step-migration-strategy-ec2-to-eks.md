@@ -1,291 +1,81 @@
 ---
 layout: post
-title: "A Safe 3-Step Migration Strategy from EC2 to Amazon EKS"
+title: "Architecture Decision Record: Zero-Downtime EKS Migration Strategy"
 date: 2026-05-11
-description: "A practical guide to migrating workloads from EC2 to Amazon EKS using a phased approach to minimize risk and downtime."
+description: "An architectural deep-dive into migrating high-throughput financial systems from EC2 to Amazon EKS without dropping transactions."
 ---
 
-Most companies running workloads on EC2 eventually hit the same problems:
+# Context & Problem Statement
 
-- Difficult scaling
-- Slow deployments
-- Infrastructure drift
-- Manual operations
-- Poor service standardization
+Our legacy architecture consisted of monolithic Spring Boot applications deployed on raw EC2 instances. While functional, it lacked horizontal scalability, resulting in unpredictable deployment times and over-provisioned infrastructure during off-peak hours. A migration to Amazon Elastic Kubernetes Service (EKS) was necessary, but given our stringent SLAs for financial transactions, any cutover had to guarantee **zero downtime** and **zero dropped requests**.
 
-Moving to Amazon EKS solves many of these issues, but doing a direct migration is risky.
+# Phase 1: The Strangler Fig with EC2 NGINX Proxies
 
-The safest approach is a phased migration where:
-1. Applications move first
-2. Traffic moves later
-3. Legacy infrastructure is removed last
+Instead of a 'big bang' DNS cutover, we opted for a phased approach. The existing EC2 NGINX layer was retained as the primary entry point. We deployed the containerized workloads to EKS and configured the legacy NGINX proxies to route traffic selectively to the EKS internal load balancers.
 
-This document explains a practical 3-step strategy used in real production environments.
+### Failure Mode Considerations
+- **What happens if a pod crashes during cutover?** EKS Readiness Probes were strictly configured to ensure traffic only routed to healthy pods. If a pod crashed, the Kubernetes service immediately removed it from the endpoints list. The EC2 NGINX proxy was configured with a retry mechanism (`proxy_next_upstream error timeout http_502;`) to seamlessly forward the request to another healthy pod.
 
----
+# Phase 2: ALB Ingress Controller vs. Legacy NGINX
 
-# Phase 1 — Move Applications to Kubernetes Behind Existing EC2 NGINX Proxies
+Once application stability was proven, we needed to route traffic directly to EKS. We evaluated using the AWS Load Balancer (ALB) Ingress Controller against migrating NGINX into the cluster as an Ingress Controller.
 
-## Goal
+**Decision:** We adopted the **AWS ALB Ingress Controller**. 
+*Rationale:* It offloaded TLS termination and WAF integrations directly to the managed AWS layer, reducing pod resource consumption. It also seamlessly integrated with AWS Certificate Manager (ACM) and Route53.
 
-Deploy applications to EKS while keeping the existing EC2 ingress layer unchanged.
-
-Instead of exposing Kubernetes directly to the internet immediately, existing EC2 NGINX proxies continue handling incoming traffic.
-
-```text
-Client
-   ↓
-Load Balancer
-   ↓
-EC2 NGINX
-   ↓
-EKS Services
-   ↓
-Pods
+```yaml
+# Ingress configuration mapping ALB to EKS Services
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: fin-api-ingress
+  annotations:
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
+    alb.ingress.kubernetes.io/healthcheck-path: /actuator/health
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /api/v1/*
+            pathType: Prefix
+            backend:
+              service:
+                name: transaction-service
+                port:
+                  number: 8080
 ```
 
-This significantly reduces migration risk because:
+# Phase 3: Handling Connection Draining
 
-* DNS remains unchanged
-* Rollbacks are easy
-* Existing traffic patterns stay stable
-* WebSocket handling remains controlled
+The most critical challenge was handling in-flight database transactions during pod termination (e.g., during a rolling deployment). Hard-killing a pod would leave uncommitted transactions in an ambiguous state.
 
----
+We implemented a robust connection draining strategy using Kubernetes Lifecycle Hooks.
 
-# What Should Be Done in This Phase
+1. **PreStop Hook:** We introduced a `preStop` hook that pauses termination for 30 seconds.
+2. **Spring Boot Graceful Shutdown:** We enabled Spring Boot's graceful shutdown feature.
 
-## 1. Containerize Applications
-
-Applications should:
-
-* Avoid local filesystem dependencies
-* Externalize configuration
-* Become stateless where possible
-
-This is also a great opportunity to:
-
-* Standardize Docker builds
-* Introduce CI/CD pipelines
-* Automate deployments
-
----
-
-## 2. Simplify Configuration Management
-
-Many legacy applications maintain:
-
-* Multiple config files
-* Environment-specific YAMLs
-* Duplicate properties
-
-A cleaner pattern is:
-
-* Move toward a single `application.yaml`
-* Keep shared config inside the application
-* Move environment-specific properties to EKS environment variables
-
-This follows better DRY principles and simplifies deployments.
-
----
-
-## 3. Start Using Secure Secret Management
-
-Migration is the right time to eliminate:
-
-* Hardcoded credentials
-* Secrets inside repositories
-* Shared config passwords
-
-Recommended approach:
-
-* AWS Secrets Manager
-* Kubernetes External Secrets
-* IAM-based authentication
-
----
-
-## 4. Adopt IAM Roles Properly
-
-Instead of static AWS credentials inside applications:
-
-* Use IAM Roles for Service Accounts (IRSA)
-* Grant pod-level AWS permissions
-
-This improves:
-
-* Security
-* Auditability
-* Credential rotation
-
----
-
-## 5. Move Inter-Service Communication to Kubernetes
-
-Applications already migrated to EKS should communicate internally using Kubernetes DNS and services.
-
-Instead of:
-
-```text
-service-a → EC2 IP → service-b
+```yaml
+# Pod Lifecycle Hook
+lifecycle:
+  preStop:
+    exec:
+      command: ["/bin/sh", "-c", "sleep 30"]
 ```
 
-move to:
-
-```text
-service-a → kubernetes-service-name
+```yaml
+# application.yml
+server:
+  shutdown: graceful
+spring:
+  lifecycle:
+    timeout-per-shutdown-phase: 30s
 ```
 
-This allows:
+### The Shutdown Flow
+When EKS initiates a pod termination, it first removes the pod from the Service endpoints. The `preStop` hook forces the pod to wait, ensuring the ALB Ingress Controller has time to deregister the target and stop sending new requests. Concurrently, Spring Boot stops accepting new connections but allows existing active database transactions to commit or rollback cleanly within the 30-second window.
 
-* Native service discovery
-* Better scaling
-* Reduced EC2 dependency
+# Conclusion
 
----
-
-## 6. Use EC2 NGINX as a Reverse Proxy
-
-NGINX routes traffic into Kubernetes while maintaining existing public endpoints.
-
-Example:
-
-```nginx
-location /api/ {
-    proxy_pass http://eks-ingress;
-}
-
-location /ws/ {
-    proxy_pass http://eks-websocket;
-
-    proxy_http_version 1.1;
-    proxy_set_header Upgrade $http_upgrade;
-    proxy_set_header Connection "upgrade";
-}
-```
-
----
-
-# Phase 2 — Route API and WebSocket Traffic Directly to EKS
-
-Once workloads stabilize inside Kubernetes, traffic can gradually bypass EC2 proxies.
-
-```text
-Client
-   ↓
-AWS Load Balancer / Ingress
-   ↓
-EKS
-   ↓
-Pods
-```
-
-Traffic migration should always be gradual:
-
-* 5%
-* 25%
-* 50%
-* 100%
-
-This phase validates:
-
-* Kubernetes ingress
-* Load balancing
-* WebSocket stability
-* Autoscaling behavior
-* Production readiness
-
----
-
-# Important Operational Practice
-
-During this phase, NGINX access logs become extremely valuable.
-
-Log:
-
-* Endpoints being hit
-* APIs still using EC2 paths
-* WebSocket traffic
-* Request frequencies
-
-This helps identify:
-
-* Forgotten consumers
-* Legacy integrations
-* Unmigrated services
-* Unexpected traffic patterns
-
----
-
-# Phase 3 — Decommission EC2 NGINX Proxies
-
-Once traffic is consistently routed directly to EKS, EC2 proxies can be removed safely.
-
-However, never shut them down immediately.
-
-A safer strategy is:
-
-1. Monitor traffic logs continuously
-2. Verify no requests hit legacy endpoints
-3. Observe for at least 7 days
-4. Then stop EC2 proxy pods/instances
-
-This observation window protects against:
-
-* Delayed cron jobs
-* Rare client flows
-* Legacy integrations
-* Weekend-only traffic patterns
-
----
-
-# Final Architecture
-
-```text
-Client
-   ↓
-AWS Load Balancer
-   ↓
-EKS Ingress
-   ↓
-Kubernetes Services
-   ↓
-Pods
-```
-
----
-
-# Key Benefits After Migration
-
-Organizations usually gain:
-
-* Faster deployments
-* Easier scaling
-* Better resource utilization
-* Improved resiliency
-* Cleaner infrastructure management
-* Better observability
-* Stronger security practices
-
-Most importantly, engineering teams gain a platform that scales operationally as the company grows.
-
----
-
-# Final Thoughts
-
-The biggest mistake companies make during EKS migration is trying to move everything at once.
-
-A phased migration strategy reduces:
-
-* Downtime risk
-* Rollback complexity
-* Networking failures
-* Operational surprises
-
-The safest sequence is always:
-
-1. Move applications first
-2. Move traffic second
-3. Remove infrastructure last
-
-That approach allows teams to modernize gradually while keeping production systems stable.
+By isolating the migration into application deployment, traffic routing, and legacy decommissioning phases, we successfully migrated our transaction tier to EKS without a single dropped client request. The combination of ALB Ingress Controllers and robust pod lifecycle management forms the foundation of our current resilient architecture.

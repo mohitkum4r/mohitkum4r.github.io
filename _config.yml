@@ -1,12 +1,12 @@
 # Site settings
 name: Mohit Kumar
-title: Mohit Kumar | Backend Software Developer
-description: Design-minded backend software developer.
+title: Mohit Kumar | Senior Backend Engineer | Distributed Financial Systems.
+description: I engineer high-throughput financial backends, specializing in event-driven architecture (Kafka), container orchestration (Kubernetes), and transactional safety.
 url: https://www.mkumar.in
 baseurl: ''
 email: mohitkumar4706@gmail.com
 cover: https://www.mkumar.in/img/cover.PNG
-logo: https://www.mkumar.in/img/emojis/technologist.png
+logo: 
 resume: https://www.mkumar.in/Mohit_Kumar_Resume.pdf
 social:
   - title: email

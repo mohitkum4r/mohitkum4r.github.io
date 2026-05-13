@@ -20,9 +20,9 @@
     - thing: Conversational AI
     - thing: Bots
 
-- name: AutoTrade Bot
-  url: https://github.com/mohitkum4r/AutoTrade-Bot
-  code: https://github.com/mohitkum4r/AutoTrade-Bot
+- name: TradeBot V2
+  url: https://github.com/mohitkum4r/TradeBotV2
+  code: https://github.com/mohitkum4r/TradeBotV2
   description: Automated trading bot with LIVE/PAPER modes using ML-driven strategy selection and LLM-powered sentiment analysis via RAG pipeline over financial news, improving prediction accuracy by 20%. Risk management with dynamic stop-loss, position sizing, and exposure limits; modular backtesting architecture reduced API costs 40%.
   used:
     - thing: Python
@@ -31,43 +31,3 @@
     - thing: Scikit-learn
     - thing: LangChain
     - thing: SQLAlchemy
-
-- name: World Covid-19 Tracker
-  url: https://covid-tracker-mohit.netlify.app/
-  code: https://github.com/mohitkum4r/world-covid-tracker
-  description: Implemented file compression using greedy-Huffman Algorithm.
-  used:
-    - thing: React
-    - thing: npm
-    - thing: CSS
-    - thing: JavaScript
-
-- name: File compression (Greedy-Huffman Algo.)
-  url: https://github.com/mohitkum4r/Huffman-File-Compression
-  code: https://github.com/mohitkum4r/Huffman-File-Compression
-  description: Implemented file compression using greedy-Huffman Algorithm.
-  used:
-    - thing: Java
-
-- name: We-Connect
-  url: https://mohits-webchat-app.herokuapp.com/
-  code: https://github.com/mohitkum4r/We-connect
-  description: A p2p video calling website that allows users be it one/two/groups to have video calling and side by side chatting in a same room
-  used:
-    - thing: Node
-    - thing: Express
-    - thing: EJS
-    - thing: CSS
-    - thing: JavaScript
- 
-- name: Remove Spam Apps
-  url: https://github.com/mohitkum4r/Remove-Chinese-Apps
-  code: https://github.com/mohitkum4r/Remove-Chinese-Apps
-  description: Minimalistic app to remove apps that might be a threat to Privacy.
-  used:
-    - thing: Java
-  
-
-
-
-
